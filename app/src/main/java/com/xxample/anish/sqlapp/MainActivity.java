@@ -4,14 +4,29 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    EditText username,password;
+    Button adduser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        username = (EditText)findViewById(R.id.username);
+        password = (EditText)findViewById(R.id.password);
+
+    }
+
+    public void addUser(View view){
+        Toast.makeText(getBaseContext(),"Button Clicked",Toast.LENGTH_LONG).show();
     }
 
 
