@@ -79,6 +79,25 @@ public class AnishDataBaseAdapter {
         return buffer.toString();
     }
 
+    public int updateName(String oldName , String newName){
+        SQLiteDatabase db = helper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(AnishHelper.USERNAME , newName);
+        String[] whereArgs = {oldName};
+        int count = db.update(AnishHelper.TABLE_NAME , contentValues , AnishHelper.USERNAME+"=?" , whereArgs);
+        return count;
+    }
+
+    public int deleteRow(){
+
+        SQLiteDatabase db = helper.getWritableDatabase();
+        String[] whereArgs = {"Vivek"};
+        int count = db.delete(AnishHelper.TABLE_NAME , AnishHelper.USERNAME+"=?" , whereArgs);
+        return count;
+
+    }
+
+
     static class AnishHelper extends SQLiteOpenHelper {
 
         private static final String DATABASE_NAME = "ansishdatabase";
